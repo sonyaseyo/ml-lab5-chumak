@@ -38,7 +38,7 @@ X = data[['Cement (component 1)(kg in a m^3 mixture)', 'Blast Furnace Slag (comp
 # Elbow Method
 def elbow_method(X):
     distortions = []
-    K = range(1, 20)
+    K = range(1, 21)
     for k in K:
         kmeans = KMeans(n_clusters=k)
         kmeans.fit(X)
@@ -52,13 +52,13 @@ def elbow_method(X):
     plt.show()
 
 
-elbow_method(X)
+elbow_method(X) # тут беремо 13
 
 
 # Silhouette Method
 def silhouette_method(X):
     silhouette_scores = []
-    K = range(2, 20)
+    K = range(2, 21)
     for k in K:
         kmeans = KMeans(n_clusters=k)
         kmeans.fit(X)
@@ -73,7 +73,7 @@ def silhouette_method(X):
     plt.show()
 
 
-silhouette_method(X)
+silhouette_method(X) # тут беремо 15
 
 
 # Prediction Strength Method (Simplified)
@@ -115,10 +115,10 @@ def prediction_strength(X, max_clusters=10):
     plt.show()
 
 
-prediction_strength(X)
+prediction_strength(X) # тут 4
 
 # Визначаємо оптимальну кількість кластерів за результатами методів
-optimal_k = 4  # Це значення змінюється залежно від результатів
+optimal_k = 4
 
 # Кластеризація з використанням KMeans
 kmeans = KMeans(n_clusters=optimal_k, init='k-means++', n_init=10)
