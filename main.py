@@ -28,7 +28,7 @@ print(f'upd cols: {data.columns.tolist()}')
 for col in data.select_dtypes(include=['object']).columns:
     data[col] = data[col].str.replace(',', '.').astype(float)
 
-    
+
 def print_cluster_centers(data, n_clusters):
     kmeans = KMeans(n_clusters=n_clusters, random_state=42)
     kmeans.fit(data)
